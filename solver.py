@@ -55,22 +55,18 @@ def main():
     # random.seed(42)
 
     NGEN = 500
-    MU = 50
-    LAMBDA = 100
     CXPB = 0.5
     MUTPB = 0.2
 
-    pop = toolbox.population(n=MU)
+    pop = toolbox.population(n=100)
     hof = tools.ParetoFront()
 
-    pop, log = algorithms.eaMuPlusLambda(pop, toolbox,
-                                         MU,
-                                         LAMBDA,
-                                         CXPB,
-                                         MUTPB,
-                                         NGEN,
-                                         halloffame=hof,
-                                         verbose=True)
+    pop, log = algorithms.eaSimple(pop, toolbox,
+                                   CXPB,
+                                   MUTPB,
+                                   NGEN,
+                                   halloffame=hof,
+                                   verbose=True)
 
     total_profit = 0
     total_weight = 0
