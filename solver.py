@@ -51,38 +51,35 @@ toolbox.register('mate', tools.cxTwoPoint)
 toolbox.register('mutate', tools.mutFlipBit, indpb=0.05)
 toolbox.register('select', tools.selNSGA2)
 
-def main():
-    # random.seed(42)
+# random.seed(42)
 
-    NGEN = 500
-    CXPB = 0.5
-    MUTPB = 0.2
+NGEN = 500
+CXPB = 0.5
+MUTPB = 0.2
 
-    pop = toolbox.population(n=100)
-    hof = tools.ParetoFront()
+pop = toolbox.population(n=100)
+hof = tools.ParetoFront()
 
-    pop, log = algorithms.eaSimple(pop, toolbox,
-                                   CXPB,
-                                   MUTPB,
-                                   NGEN,
-                                   halloffame=hof,
-                                   verbose=True)
+pop, log = algorithms.eaSimple(pop, toolbox,
+                               CXPB,
+                               MUTPB,
+                               NGEN,
+                               halloffame=hof,
+                               verbose=True)
 
-    total_profit = 0
-    total_weight = 0
-    best_solution = hof[0]
+total_profit = 0
+total_weight = 0
+best_solution = hof[0]
 
-    print 'Items selected:'
+print 'Items selected:'
 
-    for i in xrange(len(best_solution)):
-        if best_solution[i]:
-            print i + 1
-            total_profit += items[i]['profit']
-            total_weight += items[i]['weight']
+for i in xrange(len(best_solution)):
+    if best_solution[i]:
+        print i + 1
+        total_profit += items[i]['profit']
+        total_weight += items[i]['weight']
 
-    print
-    print 'Total weight: %d' % total_weight
-    print 'Capacity: %d' % capacity
-    print 'Total profit: %d' % total_profit
-
-main()
+print
+print 'Total weight: %d' % total_weight
+print 'Capacity: %d' % capacity
+print 'Total profit: %d' % total_profit
