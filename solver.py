@@ -14,7 +14,7 @@ class Evaluator(object):
         total_weight = 0
         total_profit = 0
 
-        for i in xrange(len(candidate)):
+        for i in range(len(candidate)):
             if candidate[i]:
                 total_weight += self.items[i]['weight']
                 total_profit += self.items[i]['profit']
@@ -71,15 +71,15 @@ total_profit = 0
 total_weight = 0
 best_solution = hof[0]
 
-print 'Items selected:'
+print('Items selected:')
 
-for i in xrange(len(best_solution)):
+for i in range(len(best_solution)):
     if best_solution[i]:
-        print i + 1
+        print(i + 1)
         total_profit += items[i]['profit']
         total_weight += items[i]['weight']
 
-print
-print 'Total weight: %d' % total_weight
-print 'Capacity: %d' % capacity
-print 'Total profit: %d' % total_profit
+print()
+print('Total weight: %d' % total_weight)
+print('Capacity: %d' % capacity)
+print('Total profit: %d' % total_profit)
